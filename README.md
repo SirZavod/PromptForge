@@ -80,7 +80,3 @@ prompt_forge_data/
 ```
 
 This folder is fully portable — copy it to another machine (or back it up) to bring your whole library and history with you.
-
-## License
-
-Add a license of your choice here (e.g. MIT) before publishing publicly — none is included by default.
