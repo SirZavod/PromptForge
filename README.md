@@ -37,7 +37,6 @@ A lightweight desktop app for building AI image-generation prompts out of reusab
 python prompt_forge.py
 ```
 
-> The file in this repo is named `prompt_forge.py` in these instructions — rename it to match if you're using a different filename.
 
 On first launch, a `prompt_forge_data/` folder is created next to the script, containing your styles, scenarios, characters, outfits, and saved history/templates.
 
@@ -55,11 +54,11 @@ On first launch, a `prompt_forge_data/` folder is created next to the script, co
          "icon.ico", sizes=[(16,16),(32,32),(48,48),(64,64),(128,128),(256,256)]
      )
      ```
-2. Place `icon.ico` in the same folder as `prompt_forge.py`. The app picks it up automatically at startup (window/taskbar icon) — no code changes needed.
+2. Place `icon.ico` in the same folder as `promptforge.py`. The app picks it up automatically at startup (window/taskbar icon) — no code changes needed.
 3. Install PyInstaller and build:
    ```bash
    pip install pyinstaller
-   pyinstaller --onefile --windowed --icon=icon.ico --name "PromptForge" prompt_forge.py
+   pyinstaller --onefile --windowed --icon=icon.ico --name "PromptForge" promptforge.py
    ```
 4. Grab the result from `dist/PromptForge.exe`, and copy `icon.ico` into that same `dist/` folder (the app looks for it next to the executable at runtime).
 5. Run `PromptForge.exe` — it will create its own `prompt_forge_data/` folder right beside it on first launch, same as running from source.
