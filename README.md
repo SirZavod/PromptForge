@@ -141,6 +141,14 @@ the job is going.
   *Workaround:* Maximize the application window before checking the 
   **"ComfyUI connected?"** checkbox.
 
+## Data & storage
+
+`prompt_forge_data/` always appears **right next to the program itself**
+— the `.py` file when run from source, or the `.exe` when run compiled —
+regardless of which folder you happened to launch it from (double-click,
+shortcut, terminal in another directory, etc. all resolve to the same
+place):
+
 ```
 prompt_forge_data/
 ├── styles/
