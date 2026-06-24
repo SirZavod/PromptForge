@@ -78,7 +78,7 @@ On first launch, a `prompt_forge_data/` folder is created right next to the prog
 
 ## Connecting to ComfyUI
 
-Direct generation requires the companion **PromptForge Connection**
+Direct generation requires the companion [**PromptForge Connection**](https://github.com/SirZavod/PromptForge-Nodes/tree/main)
 custom node package installed in `ComfyUI/custom_nodes/` (separate
 install — see that package's own README for setup and graph wiring).
 
