@@ -80,7 +80,7 @@ On first launch, a `prompt_forge_data/` folder is created right next to the prog
 
 Direct generation requires the companion [**PromptForge Connection**](https://github.com/SirZavod/PromptForge-Nodes/tree/main)
 custom node package installed in `ComfyUI/custom_nodes/` (separate
-install — see that package's own README for setup and graph wiring).
+install — see that package's own repository).
 
 1. Place a **PromptForge Connector** node in your ComfyUI graph (and,
    optionally, a **PromptForge Multi Lora Loader**), wired up per the
