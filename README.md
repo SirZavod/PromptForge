@@ -131,15 +131,6 @@ the job is going.
   data issue — nothing is lost, it's purely cosmetic. A proper fix is
   planned alongside a future migration of the UI to PyQt6 or PySide6;
   until then, restart the app after a theme switch if it looks off.
-
-## Known issues
-
-- **Theme toggle doesn't fully recolor every widget.** Switching between
-  light and dark theme can leave a few widgets with their old colors
-  until the app is restarted. This is a Tkinter rendering quirk, not a
-  data issue — nothing is lost, it's purely cosmetic. A proper fix is
-  planned alongside a future migration of the UI to PyQt6 or PySide6;
-  until then, restart the app after a theme switch if it looks off.
 - **Crash when enabling ComfyUI integration in windowed mode.** The app 
   may occasionally crash or freeze if you toggle the ComfyUI connection 
   while running in windowed mode. This behavior depends entirely on your 
