@@ -27,9 +27,9 @@ live preview, LoRA management, and a results gallery.
 |---|---|
 | ![Builder](screenshots/01-builder.png) | ![Custom template editor](screenshots/02-custom-template.png) |
 
-| Library | History |
-|---|---|
-| ![Library](screenshots/03-library.png) | ![History](screenshots/04-history.png) |
+| Library |
+|---|
+| ![Library](screenshots/03-library.png)|
 
 ## Getting started
 
