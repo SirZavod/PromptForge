@@ -15,6 +15,7 @@ live preview, LoRA management, and a results gallery.
 - **Direct ComfyUI generation** — connect to a running ComfyUI instance (via the companion custom node) and send your assembled prompt straight to it with **🎨 Generate in ComfyUI**, no copy-pasting. Watch live preview frames while it samples, and get the finished image back in the Builder tab and the Gallery. Prefer to just build the text? **⚡ Generate prompt and copy** still does that, with or without ComfyUI connected. See [Connecting to ComfyUI](#connecting-to-comfyui) below.
 - **LoRA Manager** — attach LoRAs to a generation either manually or automatically (pulled from whichever library entries — characters, outfits, styles — are bound to one), tagged `[M]`(manual lora)/`[A]`(automatical lora) so you always know which is which. Validated against ComfyUI's live LoRA list before every submit, so a missing file is caught up front instead of silently skipping.
 - **Library manager** — a built-in editor for your styles, scenarios, characters, and outfits, with search, per-character "canon" outfits, an optional source URL per entry (for crediting/finding the original model or reference), and an optional bound LoRA (used by the LoRA Manager's auto slots).
+- **Library subfolders** — organize entries within each category into folders (and nested subfolders) purely for browsing: drag an entry onto a folder, or right-click → **Move to…** for one-off or multi-select moves. Folders sort alphabetically above entries at every level, expand/collapse individually or all at once, and have zero effect on the Builder, search, or LoRA bindings — an entry's name stays the single thing that identifies it everywhere else. Canon outfits are filed automatically into an always-present **Canonical Outfits** folder so they don't clutter the regular outfit list. See [Library subfolders](#library-subfolders) below.
 - **Reference images** — attach a preview image to any library entry by dragging a file onto the editor or clicking to browse. Images are auto-converted, resized, and saved next to their entry. The preview size is adjustable with a slider and remembered between sessions.
 - **History** — every generated prompt is saved automatically, with favorites and one-click restore back into the builder.
 - **Gallery** — every image generated through ComfyUI this session shows up as a thumbnail, with hover-to-reveal-in-explorer and click-to-open-full-size.
@@ -123,6 +124,45 @@ browser tab, and submits to that. Concretely:
 **Rule of thumb:** whichever ComfyUI workflow tab was open last is where
 the job is going.
 
+## Library subfolders
+
+Each category in the Library tab (styles, scenarios, characters, outfits)
+can be organized into folders and nested subfolders — purely as a
+browsing aid. Folders are never part of an entry's identity: an entry's
+name is still the one thing the Builder, search, history, and LoRA
+bindings care about, exactly as before. You can rename a folder, move
+its contents around, or delete it entirely without touching a single
+`.txt`/`.jpg`/`.meta.json` file on disk.
+
+- **Creating a folder** — right-click anywhere in the list (an entry, a
+  folder, or empty space) → **New folder…**. Right-click a folder →
+  **New subfolder here** to nest one inside it.
+- **Moving entries in** — either drag an entry (or a multi-selection made
+  with Shift/Ctrl) onto a folder, or right-click → **Move to…** and pick
+  a destination, including back to the category root. The context menu
+  is the more reliable option for large batches.
+- **Expand / collapse** — click a folder's disclosure arrow to open or
+  close it, or use the **▾ Expand all** / **▸ Collapse all** buttons
+  above the list to do it for the whole category at once. A freshly
+  opened category starts fully collapsed.
+- **Sorting** — folders always sort above entries, alphabetically, at
+  every level of nesting.
+- **Search** — typing in the search box filters by entry name/content
+  only, the same as before subfolders existed; a folder's own name is
+  never part of the match. Folders containing a match auto-expand for
+  the duration of the search, and empty folders you've created stay
+  visible too (they can't hide a false match, so there's no reason to
+  collapse them out of the way).
+- **Canon outfits** — automatically filed into a dedicated **Canonical
+  Outfits** folder the moment an outfit is marked as a character's canon
+  outfit, keeping them out of your hand-organized folders. That folder
+  is system-managed: it can't be renamed or deleted, and ordinary outfits
+  can't be dropped into it by hand.
+
+Folder placement is saved per category in `_folders.json` (see
+[Data & storage](#data--storage)) and has no effect whatsoever on the
+Builder's dropdowns, autocomplete, or generated prompts.
+
 ## Known issues
 
 - **Theme toggle doesn't fully recolor every widget.** Switching between
@@ -165,6 +205,7 @@ prompt_forge_data/
 ├── _custom_templates.json     # custom text templates
 ├── _history.json               # generated-prompt history
 ├── _settings.json              # theme, image-preview size, and other UI preferences
+├── _folders.json                # per-category library subfolder placement (UI only — see Library subfolders)
 └── _comfy_previews/            # session-only cache of images pulled from ComfyUI
                                  # (Builder's "Latest image" + Gallery thumbnails);
                                  # wiped on every app restart, never holds your only copy
@@ -181,7 +222,24 @@ reference images with you.
 
 ## Changelog
 
-### v2.0.0 (Current)
+### v2.1.0 (Current)
+- **Library subfolders:** organize entries in any category (styles,
+  scenarios, characters, outfits) into folders and nested subfolders,
+  purely as a browsing aid — entry names stay the single identifier the
+  Builder, search, history, and LoRA bindings rely on, untouched.
+  - Drag-and-drop (including multi-selection via Shift/Ctrl) or
+    right-click → **Move to…** to file entries into folders; right-click
+    → **New folder…** / **New subfolder here** to create them.
+  - Folders sort alphabetically above entries at every nesting level;
+    **▾ Expand all** / **▸ Collapse all** buttons sit above the list,
+    alongside per-folder click-to-toggle.
+  - Search matches entry name/content only — never a folder's own name —
+    and auto-expands any branch containing a match.
+  - Canon outfits are filed automatically into a system-managed
+    **Canonical Outfits** folder, keeping them separate from your own
+    organization.
+
+### v2.0.0
 - **Direct ComfyUI generation:** a new companion custom node package
   (PromptForge Connection) plus an in-app "4. ComfyUI" panel let you
   submit your built prompt straight to a running ComfyUI instance and
