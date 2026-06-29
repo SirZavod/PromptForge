@@ -59,8 +59,8 @@ On first launch, a `prompt_forge_data/` folder is created right next to the prog
 
 ## Sample library
 
-A small starter library ships in this repo — 4 styles, 2 characters, 2
-scenarios, 4 outfits, all plain text descriptions with **no LoRA
+A small starter library ships in this repo — 3 styles, 2 characters, 3
+scenarios, 3 outfits, all plain text descriptions with **no LoRA
 bindings**, just so there's something to look at and generate from
 immediately instead of staring at an empty Library tab. Built around a
 realism-leaning DiT model (Kontext/Z-Image-class), but the styles are
